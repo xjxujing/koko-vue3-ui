@@ -4,13 +4,19 @@
   <router-view></router-view>
 </template>
 
-<script>
+<script lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import {provide, ref} from "vue";
 
 export default {
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+  setup() {
+    const width = document.documentElement.clientWidth;
+    const asideVisible = ref(width > 600);
+    provide("asideVisible", asideVisible);
+  },
 }
 </script>

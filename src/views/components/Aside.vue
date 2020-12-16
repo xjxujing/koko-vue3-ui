@@ -19,16 +19,25 @@
 import { inject, Ref } from "vue";
 
 export default {
+  props: {
+    asideVisibleProp: {
+      type: Boolean,
+      default: false,
+    }
+  },
   setup() {
     const asideVisible = inject<Ref<boolean>>("asideVisible"); // get
-    return { asideVisible };
+    return {asideVisible};
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .aside {
+  position: absolute;
+  z-index: 10;
+  display: block;
   width: 150px;
-  outline: 1px solid pink;
+  background-color: pink;
 }
 </style>

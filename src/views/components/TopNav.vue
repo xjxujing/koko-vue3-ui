@@ -1,12 +1,17 @@
 <template>
   <div class="top-nav">
-    <div class="logo-wrapper" @click="toggleAside">LOGO</div>
+    <span class="aside-button" @click="toggleAside">三</span>
+
+    <div class="logo">
+      <router-link to="/">LOGO</router-link>
+    </div>
 
     <ul class="menu">
       <li>文档</li>
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
+
   </div>
 </template>
 
@@ -14,14 +19,20 @@
 import { inject, Ref } from "vue";
 
 export default {
+  props: {
+    hasAsideButton: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
-    const asideVisible = inject<Ref<boolean>>("asideVisible"); // get
+    const asideVisible = inject<Ref<boolean>>("asideVisible");
 
     const toggleAside = () => {
       asideVisible.value = !asideVisible.value;
-      console.log('点击', asideVisible.value)
+      console.log("点击", asideVisible.value);
     };
-    return { toggleAside };
+    return {toggleAside};
   },
 };
 </script>
@@ -34,7 +45,11 @@ export default {
   border-bottom: 1px solid #eaecef;
   border-bottom-color: rgb(234, 236, 239);
 
-  .logo-wrapper {
+  > .aside-button {
+    display: none;
+  }
+
+  .logo {
     cursor: pointer;
   }
 
@@ -42,7 +57,24 @@ export default {
     display: flex;
 
     > li {
-      margin: 0 1em;
+      padding: 0 1em;
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    > .aside-button {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    > .logo {
+      display: inline-block;
+      margin: 0 auto;
+    }
+
+    > .menu {
+      display: none;
     }
   }
 }
