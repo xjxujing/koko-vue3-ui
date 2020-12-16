@@ -1,6 +1,12 @@
 <template>
   <TopNav></TopNav>
-  <Aside></Aside>
+
+  <main>
+    <Aside></Aside>
+    <div class="main-content">
+      <router-view></router-view>
+    </div>
+  </main>
 </template>
 
 <script lang="ts">
@@ -13,5 +19,9 @@
   };
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .main-content {
+    margin-left: 150px;
+    padding: 32px
+  }
 </style>

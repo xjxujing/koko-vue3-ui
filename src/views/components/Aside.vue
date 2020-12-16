@@ -7,10 +7,18 @@
     </ol>
     <h2>组件</h2>
     <ul>
-      <li>组件1</li>
-      <li>组件2</li>
-      <li>组件3</li>
-      <li>组件4</li>
+      <li>
+        <router-link to="/doc/switch">Switch 组件</router-link>
+      </li>
+      <li>
+        <router-link to="/doc/button">Button 组件</router-link>
+      </li>
+      <li>
+        <router-link to="/doc/dialog">Dialog 组件</router-link>
+      </li>
+      <li>
+        <router-link to="/doc/tabs">Tabs 组件</router-link>
+      </li>
     </ul>
   </aside>
 </template>
@@ -33,11 +41,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "styles/_var.scss";
 .aside {
   position: absolute;
   z-index: 10;
   display: block;
   width: 150px;
-  background-color: pink;
+  /*background-color: pink;*/
+  border-right: 1px solid $border-color;;
 }
 </style>

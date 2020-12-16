@@ -38,11 +38,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "styles/_var.scss";
+
 .top-nav {
   display: flex;
   justify-content: space-between;
   padding: 16px;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 1px solid $border-color;
   border-bottom-color: rgb(234, 236, 239);
 
   > .aside-button {
